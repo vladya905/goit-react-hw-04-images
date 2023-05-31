@@ -1,15 +1,22 @@
-import PropTypes from "prop-types";
-import ImageGalleryItem from "../ImageGalleryItem/ImageGalleryItem";
-import React from "react";
-import css from "./ImageGallery.module.css";
+import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
+import ImageGalleryItem from '../ImageGalleryItem/ImageGalleryItem';
+import css from './ImageGallery.module.css';
 
-const ImageGallery = ({ onClick, onItemClick, images }) => {
+const ImageGallery = ({ images, onClick, onItemClick }) => {
 
   const handleOpenModal = (event) => {
     if (event.target !== event.currentTarget) {
       onClick();
     }
   };
+
+  useEffect(() => {
+    window.scrollTo({
+      top: document.documentElement.scrollHeight,
+      behavior: "smooth",
+    });
+  }, [images]);
 
   return (
     <ul className={css.ImageGallery} onClick={handleOpenModal}>
@@ -21,7 +28,7 @@ const ImageGallery = ({ onClick, onItemClick, images }) => {
         ))}
     </ul>
   );
-}
+};
 
 ImageGallery.propTypes = {
   onClick: PropTypes.func.isRequired,
