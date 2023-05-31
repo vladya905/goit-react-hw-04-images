@@ -34,12 +34,7 @@ const App = () => {
     fetchImages();
   }, [searchQuery, page]);
 
-  const handleScroll = () => {
-    window.scrollTo({
-      top: document.documentElement.scrollHeight,
-      behavior: "smooth",
-    });
-  };
+  
 
   const handleChangeQuery = (query) => {
     setSearchQuery(query);

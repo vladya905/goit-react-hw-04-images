@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import ImageGalleryItem from '../ImageGalleryItem/ImageGalleryItem';
 import css from './ImageGallery.module.css';
@@ -10,6 +10,7 @@ const ImageGallery = ({ images, onClick, onItemClick }) => {
       onClick();
     }
   };
+  
 
   useEffect(() => {
     window.scrollTo({
